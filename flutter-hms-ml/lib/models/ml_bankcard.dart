@@ -35,7 +35,6 @@ class MLBankcard {
       this.organization});
 
   factory MLBankcard.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
     return MLBankcard(
         expire: json['expire'] ?? null,
         number: json['number'] ?? null,

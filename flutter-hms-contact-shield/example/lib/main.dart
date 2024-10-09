@@ -484,7 +484,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return ElevatedButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(Colors.blueGrey),
+        backgroundColor: WidgetStateProperty.all<Color>(Colors.blueGrey),
       ),
       child: Text(
         text,

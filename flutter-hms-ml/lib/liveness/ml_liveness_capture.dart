@@ -45,7 +45,10 @@ class MLLivenessCapture {
 
   final MethodChannel _channel = Channels.livenessMethodChannel;
 
-  Future<MLLivenessCaptureResult> startLivenessDetection({bool detectMask = true}) async {
-    return new MLLivenessCaptureResult.fromMap(await _channel.invokeMethod("getLivenessDetectionResult", <String, dynamic>{'detectMask': detectMask}));
+  Future<MLLivenessCaptureResult> startLivenessDetection(
+      {bool detectMask = true}) async {
+    return new MLLivenessCaptureResult.fromMap(await _channel.invokeMethod(
+        "getLivenessDetectionResult",
+        <String, dynamic>{'detectMask': detectMask}));
   }
 }

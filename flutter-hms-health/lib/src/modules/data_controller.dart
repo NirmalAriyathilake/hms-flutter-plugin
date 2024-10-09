@@ -116,8 +116,7 @@ class DataController {
     int startTime,
     int endTime,
   ) async {
-    final List<dynamic>? result =
-        await _channel.invokeMethod<List<dynamic>?>(
+    final List<dynamic>? result = await _channel.invokeMethod<List<dynamic>?>(
       'readDailySummationList',
       <String, dynamic>{
         'dataType': DataType.toMapList(dataTypes),
@@ -159,12 +158,11 @@ class DataController {
   Future<List<SampleSet?>?> readTodaySummationList(
     List<DataType> dataTypes,
   ) async {
-    final List<dynamic>? result =
-        await _channel.invokeMethod<List<dynamic>?>(
+    final List<dynamic>? result = await _channel.invokeMethod<List<dynamic>?>(
       'readTodaySummationList',
       DataType.toMapList(dataTypes),
     );
-   List<SampleSet> records = <SampleSet>[];
+    List<SampleSet> records = <SampleSet>[];
     if (result != null) {
       for (dynamic e in result) {
         records.add(SampleSet.fromMap(e));

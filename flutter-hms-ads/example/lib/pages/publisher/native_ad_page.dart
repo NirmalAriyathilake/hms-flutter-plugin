@@ -65,7 +65,7 @@ class _NativeAdPageState extends State<NativeAdPage> {
         (VideoLifecycleEvent event, {bool? isMuted}) {
       debugPrint('VideoLifeCycle event : $event');
       setState(() {
-        logs = '${logs}VideoLifeCycle event : ${describeEnum(event)}\n';
+        logs = '${logs}VideoLifeCycle event : ${event.name}\n';
       });
     };
     bool? hasVideo = await operator?.hasVideo();
@@ -174,7 +174,7 @@ class _NativeAdPageState extends State<NativeAdPage> {
                             debugPrint('Native Ad event : $event');
                             setState(() {
                               logs =
-                                  '${logs}Native Ad event : ${describeEnum(event)}\n';
+                                  '${logs}Native Ad event : ${describeEnum(event.name)}\n';
                             });
                           },
                         ),

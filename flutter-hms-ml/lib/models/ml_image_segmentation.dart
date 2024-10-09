@@ -24,8 +24,6 @@ class MLImageSegmentation {
       {this.foregroundUri, this.grayscaleUri, this.originalUri, this.masks});
 
   factory MLImageSegmentation.fromJson(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return MLImageSegmentation(
         foregroundUri: map['bitmapForeground'] ?? null,
         grayscaleUri: map['bitmapGrayscale'] ?? null,

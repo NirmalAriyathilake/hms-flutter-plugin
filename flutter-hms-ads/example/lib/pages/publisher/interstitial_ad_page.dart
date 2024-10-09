@@ -14,7 +14,6 @@
     limitations under the License.
 */
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:huawei_ads/huawei_ads.dart';
 import 'package:huawei_ads_example/utils/constants.dart';
@@ -48,7 +47,7 @@ class _InterstitialAdPageState extends State<InterstitialAdPage> {
       listener: (AdEvent event, {int? errorCode}) {
         debugPrint('Interstitial Ad event : $event');
         setState(() {
-          logs = '${logs}Interstitial Ad event : ${describeEnum(event)}\n';
+          logs = '${logs}Interstitial Ad event : ${event.name}\n';
         });
       },
     );

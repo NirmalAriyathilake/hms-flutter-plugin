@@ -26,8 +26,6 @@ class MLGeneralCard {
   MLGeneralCard({this.text, this.bitmap});
 
   factory MLGeneralCard.fromJson(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return MLGeneralCard(
         text: map['text'] != null ? new MLText.fromJson(map['text']) : null,
         bitmap: map['cardBitmap'] ?? null);

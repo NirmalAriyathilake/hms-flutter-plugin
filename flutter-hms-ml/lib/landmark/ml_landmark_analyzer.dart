@@ -24,8 +24,10 @@ import 'package:huawei_ml/utils/channels.dart';
 class MLLandmarkAnalyzer {
   final MethodChannel _channel = Channels.landmarkAnalyzerMethodChannel;
 
-  Future<List<MLLandmark>> asyncAnalyzeFrame(MLLandmarkAnalyzerSetting setting) async {
-    var res = json.decode(await _channel.invokeMethod("analyzeLandmark", setting.toMap()));
+  Future<List<MLLandmark>> asyncAnalyzeFrame(
+      MLLandmarkAnalyzerSetting setting) async {
+    var res = json.decode(
+        await _channel.invokeMethod("analyzeLandmark", setting.toMap()));
     return (res as List).map((e) => MLLandmark.fromJson(e)).toList();
   }
 

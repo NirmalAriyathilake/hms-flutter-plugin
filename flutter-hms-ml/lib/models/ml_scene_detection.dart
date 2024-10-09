@@ -23,7 +23,6 @@ class MLSceneDetection {
   MLSceneDetection({this.confidence, this.result});
 
   factory MLSceneDetection.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
     return MLSceneDetection(
         result: json['result'] ?? null, confidence: json['confidence'] ?? null);
   }

@@ -35,12 +35,16 @@ class MLImageSegmentationAnalyzer {
 
   final MethodChannel _channel = Channels.segmentationMethodChannel;
 
-  Future<MLImageSegmentation> asyncAnalyzeFrame(MLImageSegmentationAnalyzerSetting setting) async {
-    return new MLImageSegmentation.fromJson(json.decode(await _channel.invokeMethod("asyncAnalyzeFrame", setting.toMap())));
+  Future<MLImageSegmentation> asyncAnalyzeFrame(
+      MLImageSegmentationAnalyzerSetting setting) async {
+    return new MLImageSegmentation.fromJson(json.decode(
+        await _channel.invokeMethod("asyncAnalyzeFrame", setting.toMap())));
   }
 
-  Future<List<MLImageSegmentation>> analyzeFrame(MLImageSegmentationAnalyzerSetting setting) async {
-    var res = json.decode(await _channel.invokeMethod("analyzeFrame", setting.toMap()));
+  Future<List<MLImageSegmentation>> analyzeFrame(
+      MLImageSegmentationAnalyzerSetting setting) async {
+    var res = json
+        .decode(await _channel.invokeMethod("analyzeFrame", setting.toMap()));
     return (res as List).map((e) => MLImageSegmentation.fromJson(e)).toList();
   }
 

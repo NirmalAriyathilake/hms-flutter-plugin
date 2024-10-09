@@ -1,0 +1,6 @@
+# melos_managed_dependency_overrides: huawei_account,huawei_gameservice
+dependency_overrides:
+  huawei_account:
+    path: ..\\..\\flutter-hms-account
+  huawei_gameservice:
+    path: ..

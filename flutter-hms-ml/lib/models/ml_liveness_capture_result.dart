@@ -26,8 +26,6 @@ class MLLivenessCaptureResult {
       {this.score, this.bitmap, this.pitch, this.roll, this.yaw, this.isLive});
 
   factory MLLivenessCaptureResult.fromMap(Map<dynamic, dynamic> map) {
-    if (map == null) return null;
-
     return MLLivenessCaptureResult(
         bitmap: map['bitmap'] ?? null,
         isLive: map['isLive'] ?? null,

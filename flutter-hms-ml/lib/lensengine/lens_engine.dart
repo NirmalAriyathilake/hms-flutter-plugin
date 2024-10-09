@@ -45,7 +45,8 @@ class LensEngine {
 
   Future<void> initLens() async {
     _startTransactor();
-    _controller.setTextureId(await _channel.invokeMethod("initializeLensView", _controller.toMap()));
+    _controller.setTextureId(
+        await _channel.invokeMethod("initializeLensView", _controller.toMap()));
   }
 
   Future<void> run() async {
@@ -54,7 +55,7 @@ class LensEngine {
 
   Future<bool> release() async {
     final bool res = await _channel.invokeMethod("release");
-    _subscription?.cancel();
+    _subscription.cancel();
     return res;
   }
 
@@ -75,7 +76,8 @@ class LensEngine {
   }
 
   Future<Size> getDisplayDimension() async {
-    Map<dynamic, dynamic> map = await _channel.invokeMethod("getDisplayDimensions");
+    Map<dynamic, dynamic> map =
+        await _channel.invokeMethod("getDisplayDimensions");
     int width = map['width'];
     int height = map['height'];
     return new Size(width.toDouble(), height.toDouble());
@@ -90,7 +92,7 @@ class LensEngine {
   }
 
   _startTransactor() {
-    _subscription?.cancel();
+    _subscription.cancel();
     switch (_controller.analyzerType) {
       case LensEngineAnalyzerOptions.FACE:
         _subscription = Channels.faceAnalyzerEventChannel
@@ -99,7 +101,7 @@ class LensEngine {
           Map<String, dynamic> map = json.decode(event);
           MLFace face = MLFace.fromJson(map['result']);
           bool isAvailable = map['isAnalyzerAvailable'];
-          _transactor?.call(result: face, isAnalyzerAvailable: isAvailable);
+          _transactor.call(result: face, isAnalyzerAvailable: isAvailable);
         });
         break;
       case LensEngineAnalyzerOptions.FACE_3D:
@@ -109,14 +111,14 @@ class LensEngine {
           Map<String, dynamic> map = json.decode(event);
           ML3DFace face = new ML3DFace.fromJson(map['result']);
           bool isAvailable = map['isAnalyzerAvailable'];
-          _transactor?.call(result: face, isAnalyzerAvailable: isAvailable);
+          _transactor.call(result: face, isAnalyzerAvailable: isAvailable);
         });
         break;
       case LensEngineAnalyzerOptions.MAX_SIZE_FACE:
         _subscription = Channels.faceAnalyzerEventChannel
             .receiveBroadcastStream()
             .listen((event) {
-          _transactor?.call(result: event);
+          _transactor.call(result: event);
         });
         break;
       case LensEngineAnalyzerOptions.HAND:
@@ -127,7 +129,7 @@ class LensEngine {
           MLHandKeypoints mlHandKeypoints =
               new MLHandKeypoints.fromJson(map['result']);
           bool isAvailable = map['isAnalyzerAvailable'];
-          _transactor?.call(
+          _transactor.call(
               result: mlHandKeypoints, isAnalyzerAvailable: isAvailable);
         });
         break;
@@ -138,16 +140,18 @@ class LensEngine {
           Map<String, dynamic> map = json.decode(event);
           MLSkeleton skeleton = new MLSkeleton.fromJson(map['result']);
           bool isAvailable = map['isAnalyzerAvailable'];
-          _transactor?.call(result: skeleton, isAnalyzerAvailable: isAvailable);
+          _transactor.call(result: skeleton, isAnalyzerAvailable: isAvailable);
         });
         break;
       case LensEngineAnalyzerOptions.CLASSIFICATION:
-        _subscription = Channels.classificationEventChannel.receiveBroadcastStream().listen((event) {
+        _subscription = Channels.classificationEventChannel
+            .receiveBroadcastStream()
+            .listen((event) {
           Map<String, dynamic> map = json.decode(event);
           MLImageClassification classification =
               new MLImageClassification.fromJson(map['result']);
           bool isAvailable = map['isAnalyzerAvailable'];
-          _transactor?.call(
+          _transactor.call(
               result: classification, isAnalyzerAvailable: isAvailable);
         });
         break;
@@ -158,28 +162,33 @@ class LensEngine {
           Map<String, dynamic> map = json.decode(event);
           Blocks block = Blocks.fromJson(map['result']);
           bool isAvailable = map['isAnalyzerAvailable'];
-          _transactor?.call(result: block, isAnalyzerAvailable: isAvailable);
+          _transactor.call(result: block, isAnalyzerAvailable: isAvailable);
         });
         break;
       case LensEngineAnalyzerOptions.OBJECT:
-        _subscription = Channels.objectAnalyzerEventChannel.receiveBroadcastStream().listen((event) {
+        _subscription = Channels.objectAnalyzerEventChannel
+            .receiveBroadcastStream()
+            .listen((event) {
           Map<String, dynamic> map = json.decode(event);
           MLObject object = new MLObject.fromJson(map['result']);
           bool isAvailable = map['isAnalyzerAvailable'];
-          _transactor?.call(result: object, isAnalyzerAvailable: isAvailable);
+          _transactor.call(result: object, isAnalyzerAvailable: isAvailable);
         });
         break;
       case LensEngineAnalyzerOptions.SCENE:
-        _subscription = Channels.sceneDetectionEventChannel.receiveBroadcastStream().listen((event) {
+        _subscription = Channels.sceneDetectionEventChannel
+            .receiveBroadcastStream()
+            .listen((event) {
           Map<String, dynamic> map = json.decode(event);
           MLSceneDetection sceneDetection =
               new MLSceneDetection.fromJson(map['result']);
           bool isAvailable = map['isAnalyzerAvailable'];
-          _transactor?.call(result: sceneDetection, isAnalyzerAvailable: isAvailable);
+          _transactor.call(
+              result: sceneDetection, isAnalyzerAvailable: isAvailable);
         });
         break;
       default:
-        _transactor?.call(result: "No valid analyzer type is specified!");
+        _transactor.call(result: "No valid analyzer type is specified!");
         break;
     }
   }

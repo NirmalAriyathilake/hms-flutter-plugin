@@ -49,5 +49,4 @@ class HmsBioAuthnManager {
   Future<void> disableLogger() async {
     await _channel.invokeMethod('disableLogger');
   }
-  
 }

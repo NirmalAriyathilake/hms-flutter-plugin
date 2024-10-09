@@ -23,8 +23,6 @@ class MLTtsSpeaker {
   MLTtsSpeaker({this.language, this.name, this.modelSize, this.speakerDesc});
 
   factory MLTtsSpeaker.fromMap(Map<dynamic, dynamic> map) {
-    if (map == null) return null;
-
     return MLTtsSpeaker(
         language: map['language'] ?? null,
         name: map['name'] ?? null,

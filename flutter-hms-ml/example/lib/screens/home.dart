@@ -14,8 +14,6 @@
     limitations under the License.
 */
 
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'custom_model_example.dart';
 import 'form_example.dart';

@@ -22,6 +22,7 @@ class Field {
   static const int FORMAT_INT32 = 1;
 
   @Deprecated('This constant has been deprecated.')
+
   /// Field that contains float values.
   static const int FORMAT_FLOAT = 2;
 
@@ -1037,11 +1038,11 @@ class Field {
     'eventName',
   );
 
-   static const Field TEMPERATURE = Field.newDoubleField(
+  static const Field TEMPERATURE = Field.newDoubleField(
     'temperature',
   );
 
-   static const Field DEPTH = Field.newDoubleField(
+  static const Field DEPTH = Field.newDoubleField(
     'depth',
   );
 
@@ -1061,6 +1062,7 @@ class Field {
   });
 
   @Deprecated('This method has been deprecated.')
+
   /// Creates an attribute that contains float values.
   const Field.newFloatField(this.name)
       : format = FORMAT_FLOAT,

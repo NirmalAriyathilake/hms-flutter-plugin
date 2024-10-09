@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: huawei_nearbyservice
+dependency_overrides:
+  huawei_nearbyservice:
+    path: ..

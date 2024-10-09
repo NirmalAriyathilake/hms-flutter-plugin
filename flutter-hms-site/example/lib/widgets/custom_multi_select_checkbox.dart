@@ -102,7 +102,7 @@ class _CustomMultiSelectDialogCheckboxState
             ElevatedButton(
               style: ButtonStyle(
                 visualDensity: VisualDensity.comfortable,
-                backgroundColor: MaterialStateProperty.all(Colors.green),
+                backgroundColor: WidgetStateProperty.all(Colors.green),
               ),
               child: const Text('Submit List'),
               onPressed: () {

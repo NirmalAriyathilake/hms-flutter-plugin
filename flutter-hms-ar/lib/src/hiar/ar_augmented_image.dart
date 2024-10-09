@@ -34,7 +34,7 @@ class ARAugmentdImage implements ARTrackableBase {
     this.trackingState,
     this.centerPose,
     this.extentX,
-    this.extentZ, 
+    this.extentZ,
   });
 
   factory ARAugmentdImage.fromMap(Map<String, dynamic> jsonMap) {

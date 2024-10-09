@@ -24,6 +24,7 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
+    namespace 'com.huawei.hms.flutter.ml'
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     defaultConfig {

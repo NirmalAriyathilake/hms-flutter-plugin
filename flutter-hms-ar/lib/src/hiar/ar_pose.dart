@@ -29,8 +29,8 @@ class ARPose {
   final List<double>? rotation;
 
   const ARPose({
-     this.translation,
-     this.rotation,
+    this.translation,
+    this.rotation,
   });
 
   factory ARPose.fromMap(Map<String, dynamic> jsonMap) {

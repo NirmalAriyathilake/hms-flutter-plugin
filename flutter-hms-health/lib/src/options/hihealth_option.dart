@@ -17,6 +17,7 @@
 part of huawei_health;
 
 @Deprecated('This Class has been deprecated.')
+
 /// Defines the request permissions.
 ///
 /// Permissions are defined by [DataType], which determines the Health Kit scopes

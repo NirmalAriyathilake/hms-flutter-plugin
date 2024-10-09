@@ -14,7 +14,6 @@
     limitations under the License.
 */
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:huawei_adsprime/huawei_adsprime.dart';
 import 'package:huawei_adsprime_example/utils/constants.dart';
@@ -54,7 +53,7 @@ class _BannerAdPageState extends State<BannerAdPage> {
       listener: (AdEvent event, {int? errorCode}) {
         debugPrint('Banner Ad event : $event');
         setState(() {
-          logs = '${logs}Banner Ad event : ${describeEnum(event)}\n';
+          logs = '${logs}Banner Ad event : ${event.name}\n';
         });
       },
     );

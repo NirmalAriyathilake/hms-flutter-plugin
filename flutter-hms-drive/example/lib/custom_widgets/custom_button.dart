@@ -31,17 +31,17 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ButtonStyle(
-        overlayColor: MaterialStateProperty.all<Color>(Colors.redAccent),
-        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+        overlayColor: WidgetStateProperty.all<Color>(Colors.redAccent),
+        padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
           const EdgeInsets.all(12),
         ),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30.0),
             side: const BorderSide(color: Colors.red),
           ),
         ),
-        backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+        backgroundColor: WidgetStateProperty.all<Color>(Colors.white),
       ),
       onPressed: () async {
         await onPressed();

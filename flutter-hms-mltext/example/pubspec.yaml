@@ -1,15 +1,17 @@
 name: huawei_ml_text_example
 description: Demonstrates how to use the Huawei ML Text Plugin.
 
+publish_to: none
+
 environment:
-  sdk: ">=2.14.0 <4.0.0"
+  sdk: ">=3.5.3 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   huawei_ml_text:
     path: ../
-  image_picker: 0.8.4
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:

@@ -39,9 +39,7 @@ class _RttExampleState extends State<RttExample> {
   _init() {
     client = new MLSpeechRealTimeTranscription();
     client.setListener((partialResult, {recognizedResult}) {
-      if (recognizedResult != null) {
-        setState(() => _result = recognizedResult);
-      }
+      setState(() => _result = recognizedResult);
     });
     config = new MLSpeechRealTimeTranscriptionConfig();
   }

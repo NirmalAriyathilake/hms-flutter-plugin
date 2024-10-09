@@ -199,41 +199,40 @@ class _HomeState extends State<Home> {
       activityTypeId: HiHealthActivities.running,
       description: 'This is a test for ActivityRecord',
       activitySummary: ActivitySummary(
-        paceSummary: PaceSummary(
-          avgPace: 247.27626,
-          bestPace: 212.0,
-          britishPaceMap: <String, double>{
-            '102802480': 365.0,
-          },
-          britishPartTimeMap: <String, double>{
-            '1.0': 263.0,
-          },
-          partTimeMap: <String, double>{
-            '1.0': 456.0,
-          },
-          paceMap: <String, double>{
-            '1.0': 263.0,
-          },
-        ),
-        dataSummary: <SamplePoint>[ 
-          SamplePoint( 
-            dataType: DataType.DT_CONTINUOUS_DISTANCE_TOTAL,
-            startTime: startTime.add(Duration(seconds: 1)),
-            endTime: endTime.subtract(Duration(seconds: 1)),
-            fieldValueOptions: FieldFloat(Field.FIELD_DISTANCE, 400),
-            timeUnit: TimeUnit.MILLISECONDS,
+          paceSummary: PaceSummary(
+            avgPace: 247.27626,
+            bestPace: 212.0,
+            britishPaceMap: <String, double>{
+              '102802480': 365.0,
+            },
+            britishPartTimeMap: <String, double>{
+              '1.0': 263.0,
+            },
+            partTimeMap: <String, double>{
+              '1.0': 456.0,
+            },
+            paceMap: <String, double>{
+              '1.0': 263.0,
+            },
           ),
-          SamplePoint(
-            dataType: DataType.POLYMERIZE_CONTINUOUS_SPEED_STATISTICS,
-            fieldValueOptions: FieldFloat(Field.FIELD_AVG, 60.0),
-            startTime: startTime.add(Duration(seconds: 1)),
-            endTime: endTime.subtract(Duration(seconds: 1)),
-            timeUnit: TimeUnit.MILLISECONDS,
-          )
-            ..setFieldValue(Field.FIELD_MIN, 40.0)
-            ..setFieldValue(Field.FIELD_MAX, 80.0),
-        ]
-      ),
+          dataSummary: <SamplePoint>[
+            SamplePoint(
+              dataType: DataType.DT_CONTINUOUS_DISTANCE_TOTAL,
+              startTime: startTime.add(Duration(seconds: 1)),
+              endTime: endTime.subtract(Duration(seconds: 1)),
+              fieldValueOptions: FieldFloat(Field.FIELD_DISTANCE, 400),
+              timeUnit: TimeUnit.MILLISECONDS,
+            ),
+            SamplePoint(
+              dataType: DataType.POLYMERIZE_CONTINUOUS_SPEED_STATISTICS,
+              fieldValueOptions: FieldFloat(Field.FIELD_AVG, 60.0),
+              startTime: startTime.add(Duration(seconds: 1)),
+              endTime: endTime.subtract(Duration(seconds: 1)),
+              timeUnit: TimeUnit.MILLISECONDS,
+            )
+              ..setFieldValue(Field.FIELD_MIN, 40.0)
+              ..setFieldValue(Field.FIELD_MAX, 80.0),
+          ]),
     );
 
     // Build the dataCollector object
@@ -599,8 +598,12 @@ class _HomeState extends State<Home> {
       LogOptions.call,
     );
     try {
-      List<SampleSet?>? sampleSets = await _dataController.readDailySummationList(
-        [DataType.DT_CONTINUOUS_STEPS_DELTA,DataType.DT_CONTINUOUS_CALORIES_BURNT],
+      List<SampleSet?>? sampleSets =
+          await _dataController.readDailySummationList(
+        [
+          DataType.DT_CONTINUOUS_STEPS_DELTA,
+          DataType.DT_CONTINUOUS_CALORIES_BURNT
+        ],
         20201002,
         20201003,
       );
@@ -1413,7 +1416,7 @@ class _HomeState extends State<Home> {
                       width: double.infinity,
                       child: OutlinedButton(
                         style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
+                          backgroundColor: WidgetStateProperty.all(
                             Colors.blue,
                           ),
                         ),

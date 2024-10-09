@@ -14,7 +14,6 @@
     limitations under the License.
 */
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:huawei_ml/huawei_ml.dart';
 import 'package:huawei_ml_example/services/image_path_provider.dart';

@@ -63,10 +63,8 @@ class _TranslateExampleState extends State<TranslateExample> {
     try {
       final String s =
           await translator.syncTranslate(sourceText: "Cómo te sientes hoy");
-      if (s != null) {
-        setState(() => _translateResult = s);
-        _stopLocalTranslate();
-      }
+      setState(() => _translateResult = s);
+      _stopLocalTranslate();
     } on Exception catch (e) {
       print(e.toString());
     }
@@ -95,10 +93,8 @@ class _TranslateExampleState extends State<TranslateExample> {
 
     try {
       final String s = await remoteTranslator.syncTranslate(setting: setting);
-      if (s != null) {
-        setState(() => _translateResult = s);
-        _stopRemoteTranslate();
-      }
+      setState(() => _translateResult = s);
+      _stopRemoteTranslate();
     } on Exception catch (e) {
       print(e.toString());
     }

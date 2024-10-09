@@ -122,7 +122,7 @@ class MLTtsEngine {
     final res =
         await Channels.ttsMethodChannel.invokeMethod("shutdownTextToSpeech");
     if (res) {
-      _subscription?.cancel();
+      _subscription.cancel();
     }
     return true;
   }
@@ -132,15 +132,15 @@ class MLTtsEngine {
   }
 
   _listenEvents() {
-    _subscription?.cancel();
+    _subscription.cancel();
     _subscription =
         Channels.ttsEventChannel.receiveBroadcastStream().listen((event) {
       Map<dynamic, dynamic> map = event;
       MLTtsEvent ttsEvent = _toTtsEvent(map['event']);
       if (ttsEvent == MLTtsEvent.onError) {
-        _callback?.call(ttsEvent, map, errorCode: map['errorId']);
+        _callback.call(ttsEvent, map, errorCode: map['errorId']);
       } else {
-        _callback?.call(ttsEvent, map);
+        _callback.call(ttsEvent, map);
       }
     });
   }

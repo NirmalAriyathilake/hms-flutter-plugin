@@ -127,7 +127,6 @@ enum PlaneFindingMode {
 
   /// Only the vertical plane is detected.
   VERTICAL_ONLY,
-  
 }
 
 /// Huawei AREngine Flutter Plugin Constants

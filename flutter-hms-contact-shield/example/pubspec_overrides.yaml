@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: huawei_contactshield
+dependency_overrides:
+  huawei_contactshield:
+    path: ..

@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: huawei_site
+dependency_overrides:
+  huawei_site:
+    path: ..

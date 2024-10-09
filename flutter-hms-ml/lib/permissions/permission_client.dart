@@ -24,7 +24,7 @@ class MLPermissionClient {
   final MethodChannel _channel = Channels.permissionMethodChannel;
 
   Future<bool> requestPermission(List<MLPermission> permissions) {
-    if (permissions == null || permissions.isEmpty) {
+    if (permissions.isEmpty) {
       throw ArgumentError("List of permissions must not be empty");
     }
 

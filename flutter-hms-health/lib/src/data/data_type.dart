@@ -203,8 +203,8 @@ class DataType {
       Field.FIELD_DESCENT_TOTAL,
     ],
   );
-  
-static const DataType DT_DIVING_DEPTH = DataType(
+
+  static const DataType DT_DIVING_DEPTH = DataType(
     'com.huawei.diving_depth',
     'https://www.huawei.com/healthkit/activity.read',
     'https://www.huawei.com/healthkit/activity.write',
@@ -224,7 +224,7 @@ static const DataType DT_DIVING_DEPTH = DataType(
     ],
   );
 
-   static const DataType DT_WATER_TEMPERATURE = DataType(
+  static const DataType DT_WATER_TEMPERATURE = DataType(
     'com.huawei.water_temperature',
     'https://www.huawei.com/healthkit/activity.read',
     'https://www.huawei.com/healthkit/activity.write',
@@ -233,7 +233,7 @@ static const DataType DT_DIVING_DEPTH = DataType(
     ],
   );
 
-   static const DataType DT_WATER_TEMPERATURE_STATISTICS = DataType(
+  static const DataType DT_WATER_TEMPERATURE_STATISTICS = DataType(
     'com.huawei.water_temperature.statistics',
     'https://www.huawei.com/healthkit/activity.read',
     'https://www.huawei.com/healthkit/activity.write',

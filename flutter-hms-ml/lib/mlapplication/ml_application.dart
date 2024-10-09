@@ -27,7 +27,8 @@ class MLApplication {
   }
 
   Future<void> setAccessToken({@required String accessToken}) async {
-    await _channel.invokeMethod("setAccessToken", <String, dynamic>{'accessToken': accessToken});
+    await _channel.invokeMethod(
+        "setAccessToken", <String, dynamic>{'accessToken': accessToken});
   }
 
   Future<void> createSettings(MLApplicationSetting setting) async {

@@ -48,7 +48,7 @@ class MLAsrRecognizer {
   }
 
   Future<bool> stopRecognition() async {
-    _subscription?.cancel();
+    _subscription.cancel();
     return await _channel.invokeMethod("stopRecognition");
   }
 
@@ -57,12 +57,12 @@ class MLAsrRecognizer {
   }
 
   _listenEvents() {
-    _subscription?.cancel();
+    _subscription.cancel();
     _subscription =
         Channels.asrEventChannel.receiveBroadcastStream().listen((event) {
       Map<dynamic, dynamic> map = event;
       MLAsrEvent asrEvent = _toAsrEvent(map['event']);
-      _listener?.call(asrEvent, map);
+      _listener.call(asrEvent, map);
     });
   }
 

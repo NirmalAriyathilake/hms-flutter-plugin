@@ -22,8 +22,8 @@ Widget customButton(String title, VoidCallback callback) => Container(
       child: ElevatedButton(
         onPressed: callback,
         style: ElevatedButton.styleFrom(
-          primary: Colors.blueGrey,
-          onPrimary: Colors.white,
+          foregroundColor: Colors.white,
+          backgroundColor: Colors.blueGrey,
           padding: const EdgeInsets.symmetric(vertical: 10),
         ),
         child: Text(title),

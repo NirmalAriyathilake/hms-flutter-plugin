@@ -53,9 +53,7 @@ class MLFrameProperty {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.ext != null) {
-      data['ext'] = this.ext.toJson();
-    }
+    data['ext'] = this.ext.toJson();
     data['formatType'] = this.formatType;
     data['height'] = this.height;
     data['itemIdentity'] = this.itemIdentity;
@@ -86,9 +84,7 @@ class Ext {
     data['lensId'] = this.lensId;
     data['maxZoom'] = this.maxZoom;
     data['zoom'] = this.zoom;
-    if (this.border != null) {
-      data['border'] = this.border.toJson();
-    }
-    return data;
+    data['border'] = this.border.toJson();
+      return data;
   }
 }

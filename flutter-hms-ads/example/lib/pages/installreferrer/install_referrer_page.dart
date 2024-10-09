@@ -14,7 +14,6 @@
     limitations under the License.
 */
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:huawei_ads/huawei_ads.dart';
 import 'package:huawei_ads_example/utils/constants.dart';
@@ -93,7 +92,7 @@ class _InstallReferrerPageContentState
         if (event == InstallReferrerStateEvent.setupFinished) {
           _referrerConnected = true;
           snackBar = createSnack(
-            'Connection setup finished. \n Referrer Response : ${describeEnum(responseCode!)}',
+            'Connection setup finished. \n Referrer Response : ${responseCode!.name}',
           );
         } else if (event == InstallReferrerStateEvent.connectionClosed) {
           _referrerConnected = false;

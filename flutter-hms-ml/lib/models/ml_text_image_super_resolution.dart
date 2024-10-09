@@ -22,7 +22,6 @@ class MLTextImageSuperResolution {
   MLTextImageSuperResolution({this.bitmap});
 
   factory MLTextImageSuperResolution.fromJson(Map<String, dynamic> json) {
-    if (json == null) return null;
     return MLTextImageSuperResolution(bitmap: json['bitmap'] ?? null);
   }
 

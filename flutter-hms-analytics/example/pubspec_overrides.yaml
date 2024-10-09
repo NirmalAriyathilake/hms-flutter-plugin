@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: huawei_analytics
+dependency_overrides:
+  huawei_analytics:
+    path: ..

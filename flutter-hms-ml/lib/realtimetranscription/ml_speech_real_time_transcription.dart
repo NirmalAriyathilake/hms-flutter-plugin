@@ -50,7 +50,7 @@ class MLSpeechRealTimeTranscription {
   Future<bool> destroyRealTimeTranscription() async {
     final bool result = await _channel.invokeMethod("destroy");
     if (result) {
-      _subscription?.cancel();
+      _subscription.cancel();
     }
     return true;
   }
@@ -60,15 +60,15 @@ class MLSpeechRealTimeTranscription {
   }
 
   _listenEvents() {
-    _subscription?.cancel();
+    _subscription.cancel();
     _subscription =
         Channels.rttEventChannel.receiveBroadcastStream().listen((event) {
       final Map<dynamic, dynamic> map = event;
       if (map.containsKey("onRecognizingResults")) {
-        _listener?.call(map,
+        _listener.call(map,
             recognizedResult: map['onRecognizingResults']['result']);
       } else {
-        _listener?.call(map);
+        _listener.call(map);
       }
     });
   }

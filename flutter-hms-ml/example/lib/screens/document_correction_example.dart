@@ -14,7 +14,6 @@
     limitations under the License.
 */
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:huawei_ml/huawei_ml.dart';
 import 'package:huawei_ml_example/services/image_path_provider.dart';
@@ -87,12 +86,10 @@ class _DocumentCorrectionExampleState extends State<DocumentCorrectionExample> {
   _startDetection() async {
     try {
       detectionResult = await analyzer.syncDocumentSkewDetect(_imagePath);
-      if (detectionResult != null) {
-        setState(() {
-          _leftTopX = detectionResult.leftTop.x;
-          _leftTopY = detectionResult.leftTop.y;
-        });
-      }
+      setState(() {
+        _leftTopX = detectionResult.leftTop.x;
+        _leftTopY = detectionResult.leftTop.y;
+      });
     } on Exception catch (e) {
       print(e.toString());
     }
@@ -101,12 +98,10 @@ class _DocumentCorrectionExampleState extends State<DocumentCorrectionExample> {
   _getCorrected() async {
     try {
       correctionResult = await analyzer.syncDocumentSkewResult();
-      if (correctionResult != null) {
-        setState(() {
-          _bitmapPath = correctionResult.imagePath;
-          _resultCode = correctionResult.resultCode;
-        });
-      }
+      setState(() {
+        _bitmapPath = correctionResult.imagePath;
+        _resultCode = correctionResult.resultCode;
+      });
     } on Exception catch (e) {
       print(e.toString());
     }

@@ -14,7 +14,6 @@
     limitations under the License.
 */
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:huawei_hmsavailability/huawei_hmsavailability.dart';
 
@@ -71,7 +70,7 @@ class _HmsAvailabilityDemoState extends State<HmsAvailabilityDemo> {
         hmsApiAvailability.setResultListener = (AvailabilityEvent? event) {
           if (event != null) {
             setState(() {
-              _eventList.add('Availability event: ${describeEnum(event)}');
+              _eventList.add('Availability event: ${event.name}');
             });
           }
         };

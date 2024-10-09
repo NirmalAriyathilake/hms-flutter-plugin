@@ -1,15 +1,17 @@
 name: huawei_modeling3d_example
 description: Demonstrates how to use the huawei_modeling3d plugin.
 
+publish_to: none
+
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=3.5.3 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   huawei_modeling3d:
     path: ../
-  path_provider: 2.0.12
+  path_provider: ^2.1.4
 
 dev_dependencies:
   flutter_test:

@@ -14,7 +14,6 @@
     limitations under the License.
 */
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:huawei_adsprime/huawei_adsprime.dart';
 import 'package:huawei_adsprime_example/utils/constants.dart';
@@ -48,7 +47,7 @@ class _NativeAdPageState extends State<NativeAdPage> {
         (VideoLifecycleEvent event, {bool? isMuted}) {
       debugPrint('VideoLifeCycle event : $event');
       setState(() {
-        logs = '${logs}VideoLifeCycle event : ${describeEnum(event)}\n';
+        logs = '${logs}VideoLifeCycle event : ${event.name}\n';
       });
     };
     bool? hasVideo = await operator?.hasVideo();
@@ -130,8 +129,7 @@ class _NativeAdPageState extends State<NativeAdPage> {
                           listener: (AdEvent event, {int? errorCode}) {
                             debugPrint('Native Ad event : $event');
                             setState(() {
-                              logs =
-                                  '${logs}Native Ad event : ${describeEnum(event)}\n';
+                              logs = '${logs}Native Ad event : ${event.name}\n';
                             });
                           },
                         ),

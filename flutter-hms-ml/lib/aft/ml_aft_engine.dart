@@ -105,7 +105,7 @@ class MLAftEngine {
   }
 
   Future<bool> closeAftEngine() async {
-    _subscription?.cancel();
+    _subscription.cancel();
     return await _channel.invokeMethod("closeAftEngine");
   }
 
@@ -114,7 +114,7 @@ class MLAftEngine {
   }
 
   _getAftEvents() {
-    _subscription?.cancel();
+    _subscription.cancel();
     _subscription =
         Channels.aftEventChannel.receiveBroadcastStream().listen((event) {
       Map<dynamic, dynamic> map = event;
@@ -123,25 +123,25 @@ class MLAftEngine {
         case "onResult":
           final MLAftResult aftResult =
               MLAftResult.fromJson(json.decode(map['result']));
-          _listener?.call(MLAftEvent.onResult, taskId, result: aftResult);
+          _listener.call(MLAftEvent.onResult, taskId, result: aftResult);
           break;
         case "onError":
           String message = map['message'];
           int errorCode = map['errorCode'];
           print("onError: $message");
-          _listener?.call(MLAftEvent.onError, taskId, errorCode: errorCode);
+          _listener.call(MLAftEvent.onError, taskId, errorCode: errorCode);
           break;
         case "onInitComplete":
-          _listener?.call(MLAftEvent.onInitComplete, taskId);
+          _listener.call(MLAftEvent.onInitComplete, taskId);
           break;
         case "onUploadProgress":
           double progress = map['progress'];
-          _listener?.call(MLAftEvent.onUploadProgress, taskId,
+          _listener.call(MLAftEvent.onUploadProgress, taskId,
               uploadProgress: progress);
           break;
         case "onEvent":
           int eventId = map['eventId'];
-          _listener?.call(MLAftEvent.onEvent, taskId, eventId: eventId);
+          _listener.call(MLAftEvent.onEvent, taskId, eventId: eventId);
           break;
       }
     });
